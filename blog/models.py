@@ -79,5 +79,23 @@ class Entry(models.Model):
 #         self.body_html = markdown.markdown(self.body_markdown, safe_mode = False)
 #
  #        super(Entry, self).save()
+def get_previous_published(self):
+
+    return self.get_previous_by_pub_date(status__exact=1)
+
+
+
+def get_next_published(self):
+
+    return self.get_next_by_pub_date(status__exact=1)
+
+
+
+def get_tags(self):
+
+    return Tag.objects.get_for_object(self)
+
+
+
 
 
